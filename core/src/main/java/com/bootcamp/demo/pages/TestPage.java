@@ -141,11 +141,11 @@ public class TestPage extends APage {
                         ereq.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
                     Table chors = new Table();
                         chors.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
-                    equip2_cell_of_cell.add(mek).expand().grow().pad(5);
-                    equip2_cell_of_cell.add(erku).expand().grow().pad(5);
+                    equip2_cell_of_cell.add(mek).expand().grow().pad(5);    // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
+                    equip2_cell_of_cell.add(erku).expand().grow().pad(5);   // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                     equip2_cell_of_cell.row();
-                    equip2_cell_of_cell.add(ereq).expand().grow().pad(5);
-                    equip2_cell_of_cell.add(chors).expand().grow().pad(5);}
+                    equip2_cell_of_cell.add(ereq).expand().grow().pad(5);   // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
+                    equip2_cell_of_cell.add(chors).expand().grow().pad(5);} // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
 
                 }
             }
