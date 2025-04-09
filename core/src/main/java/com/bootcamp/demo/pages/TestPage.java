@@ -133,13 +133,13 @@ public class TestPage extends APage {
 
                     equip2_cell.row();
                     if (k == 0) {
-                    Table mek = new Table();
+                    Table mek = new Table();           // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                     mek.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
-                    Table erku = new Table();
+                    Table erku = new Table();         // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                         erku.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
-                    Table ereq = new Table();
+                    Table ereq = new Table();        // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                         ereq.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
-                    Table chors = new Table();
+                    Table chors = new Table();       // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                         chors.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#ced4da")));
                     equip2_cell_of_cell.add(mek).expand().grow().pad(5);    // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
                     equip2_cell_of_cell.add(erku).expand().grow().pad(5);   // senc em grel vorovhetev for-ov grum ei stackoverflow er qcum
