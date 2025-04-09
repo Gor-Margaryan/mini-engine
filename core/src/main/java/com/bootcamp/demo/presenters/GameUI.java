@@ -3,19 +3,15 @@ package com.bootcamp.demo.presenters;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Cell;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.bootcamp.demo.engine.Resources;
-import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.events.core.EventListener;
 import com.bootcamp.demo.events.core.EventModule;
 import com.bootcamp.demo.managers.API;
+import com.bootcamp.demo.pages.MyPage;
 import com.bootcamp.demo.pages.TestPage;
 import com.bootcamp.demo.pages.core.APage;
 import com.bootcamp.demo.pages.core.PageManager;
@@ -40,6 +36,7 @@ public class GameUI extends ScreenAdapter implements Disposable, EventListener {
 
         rootUI = new Table();
         rootUI.setFillParent(true);
+        rootUI.debug();
 
         // init stage
         stage = new Stage(viewport);
@@ -55,7 +52,7 @@ public class GameUI extends ScreenAdapter implements Disposable, EventListener {
         stage.draw();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.T)) {
-            API.get(PageManager.class).show(TestPage.class);
+            API.get(PageManager.class).show(MyPage.class);
         }
     }
 
