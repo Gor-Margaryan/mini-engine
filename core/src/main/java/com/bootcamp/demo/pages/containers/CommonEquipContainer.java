@@ -19,6 +19,6 @@ public class CommonEquipContainer extends Table {
 
         this.add(yxq).expand().fill().space(10);
         this.add(animalSlot).expand().fill().pad(10);
-        
+
     }
 }
