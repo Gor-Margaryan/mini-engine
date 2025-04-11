@@ -57,7 +57,7 @@ public class MyPage extends APage {
 
         CommonEquipContainer commonEquipContainer = new CommonEquipContainer();
         equipTable.add(commonEquipContainer).width(480).expandY().fillY().pad(30);
-        commonEquipContainer.debug();
+        
 
         return equipTable;
     }
