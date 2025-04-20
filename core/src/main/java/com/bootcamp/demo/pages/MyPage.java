@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.bootcamp.demo.engine.Labels;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.BorderedTable;
+import com.bootcamp.demo.engine.widgets.OffsetButton;
 import com.bootcamp.demo.engine.widgets.WidgetsContainer;
 import com.bootcamp.demo.localization.GameFont;
 import com.bootcamp.demo.pages.core.APage;
@@ -15,9 +16,9 @@ import com.bootcamp.demo.pages.core.APage;
 public class MyPage extends APage {
     @Override
     protected void constructContent(Table content) {
-       final Table statsSegment = constructStatsSegment();
-       final Table equipSegment = constructEquipSegment();
-       final Table buttonSegment = constructButtonSegment();
+        final Table statsSegment = constructStatsSegment();
+        final Table equipSegment = constructEquipSegment();
+        final Table buttonSegment = constructButtonSegment();
 
 
         final Table uiSegment = new Table();
@@ -63,24 +64,21 @@ public class MyPage extends APage {
     }
 
     public Table constructButtonSegment() {
-        final BorderedTable firstButton = new BorderedTable();
-        firstButton.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#f6bd60")));
-        firstButton.add(new Image(new Texture("a.png"))).size(150,150).space(20);
-        firstButton.add(Labels.make(GameFont.BOLD_28,Color.WHITE,"Lv.1"));
+        final OffsetButton firstButton = new OffsetButton(OffsetButton.Style.YELLOW_35);
+        firstButton.getFrontTable().add(new Image(new Texture("a.png"))).size(140, 140).space(20);
+        firstButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "Lv.1"));
 
-        final BorderedTable secondButton = new BorderedTable();
-        secondButton.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#9ef01a")));
-        secondButton.add(Labels.make(GameFont.BOLD_28,Color.WHITE,"LOOT")).space(20);
-        secondButton.add(new Image(new Texture("b.png"))).size(150,150);
+        final OffsetButton secondButton = new OffsetButton(OffsetButton.Style.GREEN_35);
+        secondButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "LOOT")).space(20);
+        secondButton.getFrontTable().add(new Image(new Texture("b.png"))).size(140, 140);
 
-        final BorderedTable thirdButton = new BorderedTable();
-        thirdButton.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#a5a58d")));
-        thirdButton.add(Labels.make(GameFont.BOLD_28,Color.WHITE,"Auto L")).space(20);
-        thirdButton.add(new Image(new Texture("c.png"))).size(150,150);
+        final OffsetButton thirdButton = new OffsetButton(OffsetButton.Style.GRAY_35);
+        thirdButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "Auto L")).space(20);
+        thirdButton.getFrontTable().add(new Image(new Texture("c.png"))).size(140, 140);
 
 
         final Table buttonSegment = new Table();
-        buttonSegment.defaults().space(80).size(420,160);
+        buttonSegment.defaults().space(80).size(420, 180);
         buttonSegment.add(firstButton);
         buttonSegment.add(secondButton);
         buttonSegment.add(thirdButton);
@@ -91,8 +89,8 @@ public class MyPage extends APage {
     public static class StatWidget extends Table {
         public StatWidget() {
             defaults().space(60);
-            add(Labels.make(GameFont.BOLD_28,Color.BLACK,"HP"));
-            add(Labels.make(GameFont.BOLD_28,Color.BLACK,"0%"));
+            add(Labels.make(GameFont.BOLD_28, Color.BLACK, "HP"));
+            add(Labels.make(GameFont.BOLD_28, Color.BLACK, "0%"));
         }
     }
 
@@ -100,14 +98,14 @@ public class MyPage extends APage {
         public StatsContainer() {
             super(3);
             defaults()
-                .size(370,70)
+                .size(370, 70)
                 .space(20);
             for (int i = 0; i < 9; i++) {
                 add(new StatWidget());
             }
         }
 
-        public void setData(){
+        public void setData() {
 
         }
     }
@@ -144,7 +142,7 @@ public class MyPage extends APage {
 
             defaults()
                 .pad(10)
-                .size(260,560);
+                .size(260, 560);
             add(slotItems);
             add(homeButton);
 
@@ -194,16 +192,15 @@ public class MyPage extends APage {
         }
     }
 
-    public static class HomeButton extends BorderedTable{
+    public static class HomeButton extends BorderedTable {
 
         public HomeButton() {
-            final BorderedTable button = new BorderedTable();
-            button.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#f6bd60")));
-            button.add(new Image(new Texture("home.png"))).size(200);
+            final OffsetButton button = new OffsetButton(OffsetButton.Style.YELLOW_35);
+            button.getFrontTable().add(new Image(new Texture("home.png"))).size(140);
 
-            add(new Image(new Texture("kriper.png"))).size(200,280).expand().bottom();
+            add(new Image(new Texture("kriper.png"))).size(200, 280).expand().bottom();
             row();
-            add(button).expand().size(260,160).bottom();
+            add(button).expand().size(260, 160).bottom();
 
             setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#b7b7a4")));
         }
