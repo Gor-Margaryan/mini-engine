@@ -17,7 +17,7 @@ public class Lwjgl3Launcher {
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
-        float[] res = new float[]{1400, 2420}; // default
+        float[] res = new float[]{1750, 2720}; // default
 //		float[] res = new float[]{1024, 1366}; // iPad Pro 12 (2021)
 //		float[] res = new float[]{1170, 2532}; // iphone 12
 
@@ -27,7 +27,7 @@ public class Lwjgl3Launcher {
         config.setWindowedMode((int)(res[0] * scale), (int)(res[1] * scale));
         config.setForegroundFPS(60);
         config.setHdpiMode(HdpiMode.Pixels);
-        config.setWindowPosition(500, 100);
+        config.setWindowPosition(500, 40);
         config.setTitle("mini zoqanch");
         return config;
     }

@@ -1,0 +1,8 @@
+<root>
+    <equip name="weapon" equipType="WEAPON" icon="MyAssets/weapon"/>
+    <equip name="head" equipType="HEAD" icon="MyAssets/head"/>
+    <equip name="body" equipType="BODY" icon="MyAssets/body"/>
+    <equip name="gloves" equipType="GLOVES" icon="MyAssets/gloves"/>
+    <equip name="melee" equipType="MELEE" icon="MyAssets/melee"/>
+    <equip name="shoes" equipType="SHOES" icon="MyAssets/shoes"/>
+</root>

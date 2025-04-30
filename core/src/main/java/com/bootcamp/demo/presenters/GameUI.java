@@ -12,7 +12,6 @@ import com.bootcamp.demo.events.core.EventListener;
 import com.bootcamp.demo.events.core.EventModule;
 import com.bootcamp.demo.managers.API;
 import com.bootcamp.demo.pages.MyPage;
-import com.bootcamp.demo.pages.TestPage;
 import com.bootcamp.demo.pages.core.APage;
 import com.bootcamp.demo.pages.core.PageManager;
 import lombok.Getter;
@@ -45,7 +44,7 @@ public class GameUI extends ScreenAdapter implements Disposable, EventListener {
         // construct
         mainPageCell = rootUI.add().grow();
 
-        API.get(PageManager.class).show(TestPage.class);
+  //      API.get(PageManager.class).show(TestPage.class);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.bootcamp.demo.data.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.XmlReader;
+import com.bootcamp.demo.data.game.equips.EquipsGameData;
 import lombok.Getter;
 
 public class GameData {
@@ -9,13 +10,13 @@ public class GameData {
     private final XmlReader xmlReader = new XmlReader();
 
     @Getter
-    private final MilitaryGearsGameData militaryGearsGameData;
+    private final EquipsGameData equipsGameData;
 
     public GameData () {
-        militaryGearsGameData = new MilitaryGearsGameData();
+        equipsGameData = new EquipsGameData();
     }
 
     public void load () {
-        militaryGearsGameData.load(xmlReader.parse(Gdx.files.internal("data/military-gear.xml")));
+        equipsGameData.load(xmlReader.parse(Gdx.files.internal("data/equips.xml")));
     }
 }

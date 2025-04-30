@@ -5,17 +5,24 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.bootcamp.demo.engine.Labels;
+import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.BorderedTable;
-import com.bootcamp.demo.engine.widgets.OffsetButton;
-import com.bootcamp.demo.engine.widgets.WidgetsContainer;
-import com.bootcamp.demo.localization.GameFont;
+import com.bootcamp.demo.managers.API;
+import com.bootcamp.demo.pages.my.containers.EquipContainer;
+import com.bootcamp.demo.pages.my.containers.StatsContainer;
 import com.bootcamp.demo.pages.core.APage;
+import com.bootcamp.demo.pages.my.containers.TacticsContainer;
+import com.bootcamp.demo.pages.my.widgets.*;
 
 public class MyPage extends APage {
+    private static StatsContainer statsContainer;
+    private static EquipContainer equipContainer;
+    private static PowerWidget powerWidget;
+
     @Override
     protected void constructContent(Table content) {
+        final Table powerSegment = constructPowerSegment();
         final Table statsSegment = constructStatsSegment();
         final Table equipSegment = constructEquipSegment();
         final Table buttonSegment = constructButtonSegment();
@@ -23,7 +30,9 @@ public class MyPage extends APage {
 
         final Table uiSegment = new Table();
         uiSegment.defaults().pad(20);
-        uiSegment.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.WHITE));
+        uiSegment.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#f4eae1")));
+        uiSegment.add(powerSegment).padTop(-140);
+        uiSegment.row();
         uiSegment.add(statsSegment);
         uiSegment.row();
         uiSegment.add(equipSegment);
@@ -34,176 +43,127 @@ public class MyPage extends APage {
     }
 
 
+    public Table constructPowerSegment() {
+
+        powerWidget = new PowerWidget();
+
+        final Table powerTable = new Table();
+        powerTable.setBackground(Squircle.SQUIRCLE_35_TOP.getDrawable(Color.WHITE));
+        powerTable.add(powerWidget).size(600, 125).pad(15);
+        return powerTable;
+    }
+
     public Table constructStatsSegment() {
-        final StatsContainer statsContainer = new StatsContainer();
+        statsContainer = new StatsContainer();
 
         final BorderedTable statsButton = new BorderedTable();
-        statsButton.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#fff1e6")));
-        statsButton.add(new Image(new Texture("menu.png")));
+        statsButton.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#f4eae2")));
+        statsButton.add(new Image(new Texture("menu.png"))).size(80, 66);
 
-        Table statsSegment = new Table();
-        statsSegment.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#a5a58d")));
+        final Table statsSegment = new Table();
+        statsSegment.setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#b6a89b")));
         statsSegment.defaults().pad(20);
         statsSegment.add(statsContainer);
-        statsSegment.add(statsButton).size(190);
+        statsSegment.add(statsButton).size(118, 130);
 
 
         return statsSegment;
     }
 
     public Table constructEquipSegment() {
-        final EquipContainer equipContainer = new EquipContainer();
-        final ItemsTable itemsTable = new ItemsTable();
+        final FirstEquipTable firstEquipTable = new FirstEquipTable();
+        final SecondaryEquipTable secondaryEquipTable = new SecondaryEquipTable();
 
         final Table equipSegment = new Table();
-        equipSegment.defaults().space(20);
-        equipSegment.add(equipContainer);
-        equipSegment.add(itemsTable);
+        equipSegment.defaults().space(50);
+        equipSegment.add(firstEquipTable);
+        equipSegment.add(secondaryEquipTable);
 
         return equipSegment;
     }
 
     public Table constructButtonSegment() {
-        final OffsetButton firstButton = new OffsetButton(OffsetButton.Style.YELLOW_35);
-        firstButton.getFrontTable().add(new Image(new Texture("a.png"))).size(140, 140).space(20);
-        firstButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "Lv.1"));
+        final LootUpgradeButton lootUpgradeButton = new LootUpgradeButton();
 
-        final OffsetButton secondButton = new OffsetButton(OffsetButton.Style.GREEN_35);
-        secondButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "LOOT")).space(20);
-        secondButton.getFrontTable().add(new Image(new Texture("b.png"))).size(140, 140);
+        final LootButton lootButton = new LootButton();
 
-        final OffsetButton thirdButton = new OffsetButton(OffsetButton.Style.GRAY_35);
-        thirdButton.getFrontTable().add(Labels.make(GameFont.BOLD_28, Color.WHITE, "Auto L")).space(20);
-        thirdButton.getFrontTable().add(new Image(new Texture("c.png"))).size(140, 140);
+        final AutoLootButton autoLootButton = new AutoLootButton();
 
 
         final Table buttonSegment = new Table();
-        buttonSegment.defaults().space(80).size(420, 180);
-        buttonSegment.add(firstButton);
-        buttonSegment.add(secondButton);
-        buttonSegment.add(thirdButton);
+        buttonSegment.defaults().space(80).size(465, 190);
+        buttonSegment.add(lootUpgradeButton);
+        buttonSegment.add(lootButton);
+        buttonSegment.add(autoLootButton);
 
         return buttonSegment;
     }
 
-    public static class StatWidget extends Table {
-        public StatWidget() {
-            defaults().space(60);
-            add(Labels.make(GameFont.BOLD_28, Color.BLACK, "HP"));
-            add(Labels.make(GameFont.BOLD_28, Color.BLACK, "0%"));
-        }
-    }
 
-    public static class StatsContainer extends WidgetsContainer<StatWidget> {
-        public StatsContainer() {
-            super(3);
-            defaults()
-                .size(370, 70)
-                .space(20);
-            for (int i = 0; i < 9; i++) {
-                add(new StatWidget());
-            }
-        }
+    public static class FirstEquipTable extends Table {
+        private final IncompleteSetWidget incompleteSetTable;
 
-        public void setData() {
-
-        }
-    }
-
-    public static class EquipWidget extends BorderedTable {
-        public EquipWidget() {
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#a5a58d")));
-            add(new Image(new Texture("star.png"))).size(60).expand().top().left();
-            add(new Image(new Texture("minecraft.png"))).size(200);
-
-        }
-    }
-
-    public static class EquipContainer extends WidgetsContainer<EquipWidget> {
-        public EquipContainer() {
-            super(3);
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#d8e2dc")));
-            defaults()
-                .size(260)
-                .space(10)
-                .pad(10);
-            for (int i = 0; i < 6; i++) {
-                add(new EquipWidget());
-            }
-
-        }
-    }
-
-    public static class ItemsTable extends Table {
-        public ItemsTable() {
-            final SlotItems slotItems = new SlotItems();
-            final HomeButton homeButton = new HomeButton();
+        public FirstEquipTable() {
+            incompleteSetTable = new IncompleteSetWidget();
+            equipContainer = new EquipContainer();
 
 
-            defaults()
-                .pad(10)
-                .size(260, 560);
-            add(slotItems);
-            add(homeButton);
-
-        }
-    }
-
-    public static class SlotItems extends Table {
-        public SlotItems() {
-            final ItemsContainer itemsContainer = new ItemsContainer();
-            final FlagTable flagItem = new FlagTable();
-
-
-            defaults()
-                .grow()
-                .space(20);
-
-            add(itemsContainer);
+            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#d2cfcc")));
+            add(incompleteSetTable).size(870, 70).pad(20);
             row();
-            add(flagItem);
+            add(equipContainer).padRight(25).padLeft(25).padBottom(20);
+
         }
     }
 
-    public static class ItemsWidget extends BorderedTable {
-        public ItemsWidget() {
-            setBackground(Squircle.SQUIRCLE_8.getDrawable(Color.valueOf("#6b705c")));
-        }
-    }
+    public static class SecondaryEquipTable extends Table {
 
-    public static class ItemsContainer extends WidgetsContainer<ItemsWidget> {
-        public ItemsContainer() {
-            super(2);
+        private final TacticsAndFlag tacticsAndFlag;
+        private final PetWidget petWidget;
+
+        public SecondaryEquipTable() {
+
+            tacticsAndFlag = new TacticsAndFlag();
+            petWidget = new PetWidget();
+
             defaults()
-                .grow()
-                .pad(15);
-            for (int i = 0; i < 4; i++) {
-                add(new ItemsWidget());
-            }
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#b7b7a4")));
+                .space(40)
+                .size(270, 580);
+            add(tacticsAndFlag);
+            add(petWidget);
 
         }
     }
 
-    public static class FlagTable extends BorderedTable {
-        public FlagTable() {
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#b7b7a4")));
-            add(new Image(new Texture("flag.png"))).size(100);
-        }
-    }
+    public static class TacticsAndFlag extends Table {
+        private final TacticsContainer tacticsContainer;
+        private final FlagWidget flagWidget;
 
-    public static class HomeButton extends BorderedTable {
+        public TacticsAndFlag() {
+            tacticsContainer = new TacticsContainer();
+            flagWidget = new FlagWidget();
 
-        public HomeButton() {
-            final OffsetButton button = new OffsetButton(OffsetButton.Style.YELLOW_35);
-            button.getFrontTable().add(new Image(new Texture("home.png"))).size(140);
 
-            add(new Image(new Texture("kriper.png"))).size(200, 280).expand().bottom();
+            defaults()
+                .size(270)
+                .space(40);
+
+            add(tacticsContainer);
             row();
-            add(button).expand().size(260, 160).bottom();
-
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#b7b7a4")));
+            add(flagWidget);
         }
+
     }
 
+
+
+
+    @Override
+    public void show(Runnable onComplete) {
+        super.show(onComplete);
+        statsContainer.setData(API.get(SaveData.class));
+        equipContainer.setData(API.get(SaveData.class).getEquipsSaveData());
+        powerWidget.setData(API.get(SaveData.class).getEquipsSaveData());
+
+    }
 }
