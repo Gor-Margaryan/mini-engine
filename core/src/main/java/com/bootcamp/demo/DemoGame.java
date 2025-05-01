@@ -4,16 +4,18 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonReader;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.JsonWriter;
+import com.badlogic.gdx.utils.*;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.events.GameStartedEvent;
 import com.bootcamp.demo.events.core.EventModule;
 import com.bootcamp.demo.managers.API;
-import com.bootcamp.demo.pages.my.RandomEquipSaveData;
+import com.bootcamp.demo.pages.my.RandomSaveData;
+
+import java.util.Random;
+
+import static com.badlogic.gdx.math.MathUtils.random;
+
 
 public class DemoGame extends Game {
 
@@ -28,12 +30,16 @@ public class DemoGame extends Game {
         loadSaveData();
 
 
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
-        RandomEquipSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomEquipSaveData(gameData);
+        RandomSaveData.getRandomTacticSaveData(gameData);
+        RandomSaveData.getRandomTacticSaveData(gameData);
+        RandomSaveData.getRandomFlagSaveData(gameData);
+
+
 
         savePlayerData();
 

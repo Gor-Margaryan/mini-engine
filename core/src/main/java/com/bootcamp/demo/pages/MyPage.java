@@ -16,9 +16,11 @@ import com.bootcamp.demo.pages.my.containers.TacticsContainer;
 import com.bootcamp.demo.pages.my.widgets.*;
 
 public class MyPage extends APage {
+    private static PowerWidget powerWidget;
     private static StatsContainer statsContainer;
     private static EquipContainer equipContainer;
-    private static PowerWidget powerWidget;
+    private static TacticsContainer tacticsContainer;
+    private static FlagWidget flagWidget;
 
     @Override
     protected void constructContent(Table content) {
@@ -136,8 +138,6 @@ public class MyPage extends APage {
     }
 
     public static class TacticsAndFlag extends Table {
-        private final TacticsContainer tacticsContainer;
-        private final FlagWidget flagWidget;
 
         public TacticsAndFlag() {
             tacticsContainer = new TacticsContainer();
@@ -161,9 +161,11 @@ public class MyPage extends APage {
     @Override
     public void show(Runnable onComplete) {
         super.show(onComplete);
+        powerWidget.setData(API.get(SaveData.class));
         statsContainer.setData(API.get(SaveData.class));
         equipContainer.setData(API.get(SaveData.class).getEquipsSaveData());
-        powerWidget.setData(API.get(SaveData.class).getEquipsSaveData());
+        tacticsContainer.setData(API.get(SaveData.class).getTacticsSaveData());
+        flagWidget.setData(API.get(SaveData.class).getFlagsSaveData());
 
     }
 }

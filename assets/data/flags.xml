@@ -1,0 +1,6 @@
+<root>
+    <flag name="flag1" icon="MyAssets/flag1" hp="2" atk="4" rarity="COMMON"/>
+    <flag name="flag2" icon="MyAssets/flag2" hp="3" atk="1" rarity="COMMON"/>
+    <flag name="flag3" icon="MyAssets/flag3" hp="4" atk="2" rarity="COMMON"/>
+    <flag name="flag4" icon="MyAssets/flag4" hp="1" atk="3" rarity="COMMON"/>
+</root>

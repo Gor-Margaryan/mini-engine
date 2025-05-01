@@ -1,0 +1,14 @@
+<root>
+    <tactic name="tactic1"  icon="MyAssets/tactic1"  hp="2" atk="5"  starCount="1" rarity = "COMMON"    />
+    <tactic name="tactic2"  icon="MyAssets/tactic2"  hp="3" atk="4"  starCount="1" rarity = "COMMON"    />
+    <tactic name="tactic3"  icon="MyAssets/tactic3"  hp="8" atk="3"  starCount="2" rarity = "COMMON"    />
+    <tactic name="tactic4"  icon="MyAssets/tactic4"  hp="3" atk="4"  starCount="1" rarity = "RARE"      />
+    <tactic name="tactic5"  icon="MyAssets/tactic5"  hp="1" atk="1"  starCount="1" rarity = "RARE"      />
+    <tactic name="tactic6"  icon="MyAssets/tactic6"  hp="3" atk="7"  starCount="2" rarity = "RARE"      />
+    <tactic name="tactic7"  icon="MyAssets/tactic7"  hp="6" atk="4"  starCount="1" rarity = "EPIC"      />
+    <tactic name="tactic8"  icon="MyAssets/tactic8"  hp="5" atk="8"  starCount="1" rarity = "EPIC"      />
+    <tactic name="tactic9"  icon="MyAssets/tactic9"  hp="3" atk="4"  starCount="2" rarity = "EPIC"      />
+    <tactic name="tactic10" icon="MyAssets/tactic10" hp="7" atk="11" starCount="1" rarity = "LEGENDARY" />
+    <tactic name="tactic11" icon="MyAssets/tactic11" hp="3" atk="2"  starCount="2" rarity = "LEGENDARY" />
+    <tactic name="tactic12" icon="MyAssets/tactic12" hp="3" atk="1"  starCount="1" rarity = "EXOTIC"    />
+</root>

@@ -8,5 +8,6 @@ public class MissionsPage extends APage {
     @Override
     protected void constructContent (Table content) {
 
+
     }
 }
