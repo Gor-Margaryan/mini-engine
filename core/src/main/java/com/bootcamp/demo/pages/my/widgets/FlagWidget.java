@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Null;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.flags.FlagGameData;
+import com.bootcamp.demo.data.save.SaveData;
+import com.bootcamp.demo.data.save.flags.EquippedFlagSaveData;
 import com.bootcamp.demo.data.save.flags.FlagsSaveData;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.BorderedTable;
@@ -40,14 +42,16 @@ public class FlagWidget extends BorderedTable {
         add(lockLayer).right();
 
     }
-    public void setData (@Null FlagsSaveData flagsSaveData){
-            String equippedFlagName = flagsSaveData.getEquippedFlag();
+    public void setData (@Null SaveData saveData){
+        EquippedFlagSaveData equippedFlagSaveData = saveData.getEquippedFlagSaveData();
+        String equippedFlagName = equippedFlagSaveData.getFlagName();
             if (equippedFlagName != null) {
-            FlagGameData flagGameData = API.get(GameData.class).getFlagsGameData().getFlags().get(equippedFlagName);
-            setBackground(Squircle.SQUIRCLE_35.getDrawable(flagGameData.getTacticAndFlagAndPetRarity().getColor()));
-            starImage.setDrawable(new TextureRegionDrawable(new Texture("star.png")));
-            flagImage.setDrawable(flagGameData.getDrawable());
-            lockImage.setDrawable(null);}
+                FlagGameData flagGameData = API.get(GameData.class).getFlagsGameData().getFlags().get(equippedFlagName);
+                setBackground(Squircle.SQUIRCLE_35.getDrawable(flagGameData.getTacticAndFlagAndPetRarity().getColor()));
+                starImage.setDrawable(new TextureRegionDrawable(new Texture("star.png")));
+                flagImage.setDrawable(flagGameData.getDrawable());
+                lockImage.setDrawable(null);
+            }
 
 
     }

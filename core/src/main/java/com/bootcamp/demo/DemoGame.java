@@ -10,11 +10,6 @@ import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.events.GameStartedEvent;
 import com.bootcamp.demo.events.core.EventModule;
 import com.bootcamp.demo.managers.API;
-import com.bootcamp.demo.pages.my.RandomSaveData;
-
-import java.util.Random;
-
-import static com.badlogic.gdx.math.MathUtils.random;
 
 
 public class DemoGame extends Game {
@@ -28,16 +23,15 @@ public class DemoGame extends Game {
         gameData.load();
 
         loadSaveData();
+     //   // FlagCaseHandle
+     //       ObjectMap<String, FlagSaveData> flags = API.get(SaveData.class).getFlagsSaveData().getFlags();
+     //       String equippedFlag = API.get(SaveData.class).getFlagsSaveData().getEquippedFlag();
+     //       if (!flags.isEmpty() && equippedFlag == null) {
+     //           API.get(SaveData.class).getFlagsSaveData().setEquippedFlag(flags.keys().toArray().random());
+     //       }
 
 
-        RandomSaveData.getRandomEquipSaveData(gameData);
-        RandomSaveData.getRandomEquipSaveData(gameData);
-        RandomSaveData.getRandomEquipSaveData(gameData);
-        RandomSaveData.getRandomEquipSaveData(gameData);
-        RandomSaveData.getRandomEquipSaveData(gameData);
-        RandomSaveData.getRandomTacticSaveData(gameData);
-        RandomSaveData.getRandomTacticSaveData(gameData);
-        RandomSaveData.getRandomFlagSaveData(gameData);
+
 
 
 

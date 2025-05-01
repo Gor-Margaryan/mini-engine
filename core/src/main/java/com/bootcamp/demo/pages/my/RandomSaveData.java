@@ -5,11 +5,13 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.equips.EquipGameData;
 import com.bootcamp.demo.data.game.flags.FlagGameData;
+import com.bootcamp.demo.data.game.pets.PetGameData;
 import com.bootcamp.demo.data.game.tactics.TacticGameData;
 import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.data.save.equips.EquipSaveData;
 import com.bootcamp.demo.data.save.equips.enums.EquipRarity;
 import com.bootcamp.demo.data.save.flags.FlagSaveData;
+import com.bootcamp.demo.data.save.pets.PetSaveData;
 import com.bootcamp.demo.data.save.stats.StatsSaveData;
 import com.bootcamp.demo.data.save.stats.enums.Stat;
 import com.bootcamp.demo.data.save.tactics.TacticSaveData;
@@ -60,6 +62,17 @@ public class RandomSaveData {
         flagSaveData.setLevel(random.nextInt(1,10));
 
         API.get(SaveData.class).getFlagsSaveData().getFlags().put(flagSaveData.getName(), flagSaveData);
-        API.get(SaveData.class).getFlagsSaveData().setEquippedFlag(flagSaveData.getName());
+        API.get(SaveData.class).getEquippedFlagSaveData().setFlagName(flagSaveData.getName());
+    }
+    public static void getRandomPetSaveData (GameData gameData) {
+        ObjectMap<String, PetGameData> pets = gameData.getPetsGameData().getPets();
+        Array<String> array = pets.keys().toArray();
+
+        PetSaveData petSaveData = new PetSaveData();
+        petSaveData.setName(array.random());
+        petSaveData.setLevel(random.nextInt(1,10));
+
+        API.get(SaveData.class).getPetsSaveData().getPets().put(petSaveData.getName(), petSaveData);
+        API.get(SaveData.class).getEquippedPetSaveData().setName(petSaveData.getName());
     }
 }

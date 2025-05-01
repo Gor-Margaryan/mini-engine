@@ -1,6 +1,6 @@
 <root>
-    <pet             />
-    <pet             />
-    <pet             />
-    <pet             />
+    <pet name="pet1" icon="MyAssets/pet1" hp="4" atk="5" rarity="COMMON_2"/>
+    <pet name="pet2" icon="MyAssets/pet2" hp="3" atk="7" rarity="RARE_2"/>
+    <pet name="pet3" icon="MyAssets/pet3" hp="4" atk="6" rarity="EPIC_2"/>
+    <pet name="pet4" icon="MyAssets/pet4" hp="4" atk="5" rarity="COMMON_2"/>
 </root>

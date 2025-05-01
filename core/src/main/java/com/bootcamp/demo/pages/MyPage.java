@@ -21,6 +21,7 @@ public class MyPage extends APage {
     private static EquipContainer equipContainer;
     private static TacticsContainer tacticsContainer;
     private static FlagWidget flagWidget;
+    private static PetWidget petWidget;
 
     @Override
     protected void constructContent(Table content) {
@@ -121,7 +122,6 @@ public class MyPage extends APage {
     public static class SecondaryEquipTable extends Table {
 
         private final TacticsAndFlag tacticsAndFlag;
-        private final PetWidget petWidget;
 
         public SecondaryEquipTable() {
 
@@ -165,7 +165,8 @@ public class MyPage extends APage {
         statsContainer.setData(API.get(SaveData.class));
         equipContainer.setData(API.get(SaveData.class).getEquipsSaveData());
         tacticsContainer.setData(API.get(SaveData.class).getTacticsSaveData());
-        flagWidget.setData(API.get(SaveData.class).getFlagsSaveData());
+        flagWidget.setData(API.get(SaveData.class));
+        petWidget.setData(API.get(SaveData.class));
 
     }
 }

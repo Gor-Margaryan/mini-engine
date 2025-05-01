@@ -3,6 +3,8 @@ package com.bootcamp.demo.data.save.stats;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.equips.enums.EquipType;
+import com.bootcamp.demo.data.game.flags.FlagGameData;
+import com.bootcamp.demo.data.game.pets.PetGameData;
 import com.bootcamp.demo.data.game.tactics.TacticGameData;
 import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.data.save.equips.EquipSaveData;
@@ -24,12 +26,31 @@ public class StatsManager {
             }
         }
 
-        ObjectMap<String, TacticGameData> tactics1 = API.get(GameData.class).getTacticsGameData().getTactics();
+        GameData gameData = API.get(GameData.class);
+        ObjectMap<String, TacticGameData> tactics1 = gameData.getTacticsGameData().getTactics();
         ObjectMap<String, TacticSaveData> tactics = saveData.getTacticsSaveData().getTactics();
         for (ObjectMap.Entry<String, TacticSaveData> entry : tactics.entries()) {
             TacticGameData tacticGameData = tactics1.get(entry.key);
             allStats.put(Stat.HP, allStats.get(Stat.HP) + tacticGameData.getHP());
             allStats.put(Stat.ATK,allStats.get(Stat.ATK) + tacticGameData.getATK());
+        }
+
+            String equippedFlag = saveData.getEquippedFlagSaveData().getFlagName();
+        if (equippedFlag != null) {
+            FlagGameData flagGameData = gameData.getFlagsGameData().getFlags().get(equippedFlag);
+            float flagHP = flagGameData.getHP();
+            float flagATK = flagGameData.getATK();
+            allStats.put(Stat.HP, allStats.get(Stat.HP) + flagHP);
+            allStats.put(Stat.ATK, allStats.get(Stat.ATK) + flagATK);
+        }
+
+        String equippedPet = saveData.getEquippedPetSaveData().getName();
+        if (equippedPet != null) {
+            PetGameData petGameData = gameData.getPetsGameData().getPets().get(equippedPet);
+            float petHP = petGameData.getHP();
+            float petATK = petGameData.getATK();
+            allStats.put(Stat.HP, allStats.get(Stat.HP) + petHP);
+            allStats.put(Stat.ATK, allStats.get(Stat.ATK) + petATK);
         }
 
 
