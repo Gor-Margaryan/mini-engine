@@ -167,6 +167,8 @@ public class MyPage extends APage {
         tacticsContainer.setData(API.get(SaveData.class).getTacticsSaveData());
         flagWidget.setData(API.get(SaveData.class));
         petWidget.setData(API.get(SaveData.class));
-
+        if (API.get(SaveData.class).getEquippedPetSaveData() != null) {
+            petWidget.animate();
+        }
     }
 }

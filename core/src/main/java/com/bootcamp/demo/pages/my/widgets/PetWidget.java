@@ -1,10 +1,14 @@
 package com.bootcamp.demo.pages.my.widgets;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Null;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.pets.PetGameData;
@@ -62,4 +66,25 @@ public class PetWidget extends BorderedTable {
             petImage.setDrawable(petGameData.getDrawable());
         }
     }
+
+    public void animate () {
+            Gdx.app.postRunnable(() -> {
+                petTable.setTransform(true);
+                petTable.clearActions();
+                petTable.setOrigin(Align.center);
+
+                petTable.addAction(
+                    Actions.forever(
+                        Actions.sequence(
+                            Actions.moveBy(0, 10,  0.14f, Interpolation.sine),
+                            Actions.moveBy(10, 0,  0.14f, Interpolation.sine),
+                            Actions.moveBy(0, -10, 0.14f, Interpolation.sine),
+                            Actions.moveBy(-10, 0, 0.14f, Interpolation.sine)
+                        )
+                        ) );
+
+            });
+
+
+   }
 }

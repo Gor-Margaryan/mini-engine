@@ -10,6 +10,7 @@ import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.events.GameStartedEvent;
 import com.bootcamp.demo.events.core.EventModule;
 import com.bootcamp.demo.managers.API;
+import com.bootcamp.demo.pages.my.RandomSaveData;
 
 
 public class DemoGame extends Game {
@@ -29,7 +30,6 @@ public class DemoGame extends Game {
      //       if (!flags.isEmpty() && equippedFlag == null) {
      //           API.get(SaveData.class).getFlagsSaveData().setEquippedFlag(flags.keys().toArray().random());
      //       }
-
 
 
 
