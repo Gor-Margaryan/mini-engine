@@ -34,3 +34,21 @@ Useful Gradle tasks and flags:
 
 Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
 For example, `core:clean` removes `build` folder only from the `core` project.
+
+
+
+ROCKBITE'S TASK
+-----------------------------------------------
+StatsManager.class
+The statistics of all equipped items (equipgear, tactics, flag, pet) are collected in one segment. 
+Randomsavedata.class
+Functions of randomsavedata.class generate all stats of items.
+-----------------------------------------------
+Equipdialog.class
+shows the stats of exact equipgear
+-----------------------------------------------
+Clicking on “LootButton” generates random equipgear and shows in equipcontainer.
+------------------------------------------------
+Data of equipped “pet”, “flag”, “tactics” are being saved in separate map with save data.
+-----------------------------------------------
+
