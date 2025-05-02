@@ -1,8 +1,26 @@
 <root>
     <equip name="weapon" equipType="WEAPON" icon="MyAssets/weapon"/>
+    <equip name="weapon1" equipType="WEAPON" icon="MyAssets/weapon1"/>
+    <equip name="weapon2" equipType="WEAPON" icon="MyAssets/weapon2"/>
+    <equip name="weapon3" equipType="WEAPON" icon="MyAssets/weapon3"/>
     <equip name="head" equipType="HEAD" icon="MyAssets/head"/>
+    <equip name="head1" equipType="HEAD" icon="MyAssets/head1"/>
+    <equip name="head2" equipType="HEAD" icon="MyAssets/head2"/>
+    <equip name="head3" equipType="HEAD" icon="MyAssets/head3"/>
     <equip name="body" equipType="BODY" icon="MyAssets/body"/>
+    <equip name="body1" equipType="BODY" icon="MyAssets/body1"/>
+    <equip name="body2" equipType="BODY" icon="MyAssets/body2"/>
+    <equip name="body3" equipType="BODY" icon="MyAssets/body3"/>
     <equip name="gloves" equipType="GLOVES" icon="MyAssets/gloves"/>
+    <equip name="gloves1" equipType="GLOVES" icon="MyAssets/gloves1"/>
+    <equip name="gloves2" equipType="GLOVES" icon="MyAssets/gloves2"/>
+    <equip name="gloves3" equipType="GLOVES" icon="MyAssets/gloves3"/>
     <equip name="melee" equipType="MELEE" icon="MyAssets/melee"/>
+    <equip name="melee1" equipType="MELEE" icon="MyAssets/melee1"/>
+    <equip name="melee2" equipType="MELEE" icon="MyAssets/melee2"/>
+    <equip name="melee3" equipType="MELEE" icon="MyAssets/melee3"/>
     <equip name="shoes" equipType="SHOES" icon="MyAssets/shoes"/>
+    <equip name="shoes1" equipType="SHOES" icon="MyAssets/shoes1"/>
+    <equip name="shoes2" equipType="SHOES" icon="MyAssets/shoes2"/>
+    <equip name="shoes3" equipType="SHOES" icon="MyAssets/shoes3"/>
 </root>

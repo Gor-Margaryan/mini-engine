@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Scaling;
 import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.equips.EquipGameData;
 import com.bootcamp.demo.data.save.equips.EquipSaveData;
@@ -23,7 +24,7 @@ public class EquipDialog extends ADialog {
 
     private static EquipGameData equipGameData;
 
-    public static   void setData(EquipSaveData equipSaveData1) {
+    public static void setData(EquipSaveData equipSaveData1) {
         equipSaveData = equipSaveData1;
         equipGameData = API.get(GameData.class).getEquipsGameData().getEquips().get(equipSaveData.getName());
     }
@@ -54,7 +55,6 @@ public class EquipDialog extends ADialog {
     }
 
 
-
     private static class CommonEquipInfo extends Table {
         private final Label equipName;
 
@@ -64,7 +64,7 @@ public class EquipDialog extends ADialog {
         private final PowRarTypTable powRarTypTable;
         private final PowRarTypInfoTable powRarTypInfoTable;
 
-        public CommonEquipInfo (){
+        public CommonEquipInfo() {
             equipName = Labels.make(GameFont.BOLD_40, Color.BLACK, equipSaveData.getName());
 
             nameLayer = new Table();
@@ -80,10 +80,9 @@ public class EquipDialog extends ADialog {
             setBackground(Squircle.SQUIRCLE_35.getDrawable(Color.valueOf("#bfbab7")));
             add(nameLayer);
             row();
-            add(equip);
+            add(equip).size(350);
             add(powRarTypTable);
             add(powRarTypInfoTable);
-
 
 
         }
@@ -118,9 +117,8 @@ public class EquipDialog extends ADialog {
             power = (Math.round(power * 100) / 100f);
 
             powerInfo = Labels.make(GameFont.BOLD_36, Color.WHITE, power + "K");
-            rarityInfo = Labels.make(GameFont.BOLD_36, equipSaveData.getEquipRarity().getColor() , equipSaveData.getEquipRarity() + "");
+            rarityInfo = Labels.make(GameFont.BOLD_36, equipSaveData.getEquipRarity().getColor(), equipSaveData.getEquipRarity() + "");
             typeInfo = Labels.make(GameFont.BOLD_36, Color.WHITE, equipGameData.getEquipType() + "");
-
 
 
             add(powerInfo).space(40).right();
@@ -143,10 +141,12 @@ public class EquipDialog extends ADialog {
 
         public Equip() {
             firstStarImage.setDrawable(new TextureRegionDrawable(new Texture("star.png")));
-            if (equipSaveData.getEquipRarity().getStarCount() == 2){
-            secondStarImage.setDrawable(new TextureRegionDrawable(new Texture("star.png")));}
+            if (equipSaveData.getEquipRarity().getStarCount() == 2) {
+                secondStarImage.setDrawable(new TextureRegionDrawable(new Texture("star.png")));
+            }
 
             itemImage.setDrawable(equipGameData.getIcon());
+            itemImage.setScaling(Scaling.fit);
 
             levelLabel = Labels.make(GameFont.BOLD_32, Color.BLACK, equipSaveData.getLevel() + "");
 
@@ -165,8 +165,6 @@ public class EquipDialog extends ADialog {
             add(levelLayer).expand().left().padLeft(10).padBottom(10);
         }
     }
-
-
 
 
 }

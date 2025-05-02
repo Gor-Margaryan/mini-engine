@@ -20,8 +20,10 @@ public class TacticWidget extends BorderedTable {
     }
 
     public void setData(@Null TacticSaveData tacticSaveData) {
+        if (tacticSaveData != null) {
         final TacticGameData tacticGameData = API.get(GameData.class).getTacticsGameData().getTactics().get(tacticSaveData.getName());
         image.setDrawable(tacticGameData.getDrawable());
         setBackground(Squircle.SQUIRCLE_50.getDrawable(tacticGameData.getTacticRarity().getColor()));
+    }
     }
 }

@@ -29,7 +29,7 @@ public class RandomSaveData {
 
         EquipSaveData equipSaveData = new EquipSaveData();
         equipSaveData.setName(array.random());
-        equipSaveData.setLevel(random.nextInt(1, 10));
+        equipSaveData.setLevel(random.nextInt(1, 80));
         if (equipSaveData.getLevel() <= 15) {
             equipSaveData.setEquipRarity(values[random.nextInt(0, 3)]);
         }
@@ -43,7 +43,7 @@ public class RandomSaveData {
             equipSaveData.setEquipRarity(values[random.nextInt(9, 12)]);
         }
         if (equipSaveData.getLevel() > 60) {
-            equipSaveData.setEquipRarity(values[random.nextInt(12, 17)]);
+            equipSaveData.setEquipRarity(values[random.nextInt(12, 16)]);
         }
 
         equipSaveData.setPower(random.nextFloat(1, 5));
