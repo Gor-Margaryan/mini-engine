@@ -12,13 +12,16 @@ import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.equips.EquipGameData;
 import com.bootcamp.demo.data.game.equips.EquipsGameData;
 import com.bootcamp.demo.data.save.equips.EquipSaveData;
+import com.bootcamp.demo.dialogs.core.DialogManager;
 import com.bootcamp.demo.engine.Labels;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.BorderedTable;
 import com.bootcamp.demo.localization.GameFont;
 import com.bootcamp.demo.managers.API;
+import com.bootcamp.demo.pages.my.dialogs.EquipDialog;
 
 public class EquipWidget extends BorderedTable {
+
     private final Image firstStarImage = new Image();
     private final Image secondStarImage = new Image();
     private final Image itemImage = new Image();
@@ -64,6 +67,8 @@ public class EquipWidget extends BorderedTable {
         add(itemImage).size(160);
         row();
         add(levelLayer).expand().left().padLeft(10).padBottom(10);
+
+
     }
 
     public void setData(@Null EquipSaveData equipSaveData) {
@@ -80,9 +85,16 @@ public class EquipWidget extends BorderedTable {
             }
             levelLabel.setText("Lv." + equipSaveData.getLevel());
             itemImage.setDrawable(equipGameData.getIcon());
-        }
 
+            setOnClick(() -> {
+                EquipDialog.setData(equipSaveData);
+                API.get(DialogManager.class).show(EquipDialog.class);
+            });
+
+
+        }
     }
+
 
     public void setEmpty() {
 

@@ -10,7 +10,6 @@ import com.bootcamp.demo.data.game.GameData;
 import com.bootcamp.demo.data.game.flags.FlagGameData;
 import com.bootcamp.demo.data.save.SaveData;
 import com.bootcamp.demo.data.save.flags.EquippedFlagSaveData;
-import com.bootcamp.demo.data.save.flags.FlagsSaveData;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.BorderedTable;
 import com.bootcamp.demo.managers.API;
@@ -55,4 +54,6 @@ public class FlagWidget extends BorderedTable {
 
 
     }
+
+
 }

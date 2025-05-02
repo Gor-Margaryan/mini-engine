@@ -28,7 +28,7 @@ public class StatsManager {
 
         GameData gameData = API.get(GameData.class);
         ObjectMap<String, TacticGameData> tactics1 = gameData.getTacticsGameData().getTactics();
-        ObjectMap<String, TacticSaveData> tactics = saveData.getTacticsSaveData().getTactics();
+        ObjectMap<String, TacticSaveData> tactics = saveData.getEquippedTacticsSaveData().getEquippedTactics();
         for (ObjectMap.Entry<String, TacticSaveData> entry : tactics.entries()) {
             TacticGameData tacticGameData = tactics1.get(entry.key);
             allStats.put(Stat.HP, allStats.get(Stat.HP) + tacticGameData.getHP());

@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Null;
 import com.badlogic.gdx.utils.ObjectMap;
+import com.bootcamp.demo.data.save.tactics.EquippedTacticsSaveData;
 import com.bootcamp.demo.data.save.tactics.TacticSaveData;
-import com.bootcamp.demo.data.save.tactics.TacticsSaveData;
 import com.bootcamp.demo.engine.Squircle;
 import com.bootcamp.demo.engine.widgets.WidgetsContainer;
 import com.bootcamp.demo.pages.my.widgets.TacticWidget;
@@ -23,8 +23,8 @@ public class TacticsContainer extends WidgetsContainer<TacticWidget> {
 
     }
 
-    public void setData(@Null TacticsSaveData tacticsSaveData) {
-        ObjectMap<String, TacticSaveData> tactics = tacticsSaveData.getTactics();
+    public void setData(@Null EquippedTacticsSaveData equippedTacticsSaveData) {
+        ObjectMap<String, TacticSaveData> tactics = equippedTacticsSaveData.getEquippedTactics();
         Array<TacticWidget> widgets = getWidgets();
         int i = 0;
         for (ObjectMap.Entry<String, TacticSaveData> entry : tactics.entries()){

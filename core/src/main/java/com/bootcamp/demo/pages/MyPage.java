@@ -164,10 +164,10 @@ public class MyPage extends APage {
         powerWidget.setData(API.get(SaveData.class));
         statsContainer.setData(API.get(SaveData.class));
         equipContainer.setData(API.get(SaveData.class).getEquipsSaveData());
-        tacticsContainer.setData(API.get(SaveData.class).getTacticsSaveData());
+        tacticsContainer.setData(API.get(SaveData.class).getEquippedTacticsSaveData());
         flagWidget.setData(API.get(SaveData.class));
         petWidget.setData(API.get(SaveData.class));
-        if (API.get(SaveData.class).getEquippedPetSaveData() != null) {
+        if (API.get(SaveData.class).getEquippedPetSaveData().getName() != null) {
             petWidget.animate();
         }
     }
